@@ -14,10 +14,9 @@ count(X,[X|T],N) :- count(X, T, N2), N is N2 + 1.
 count(X,[Y|T],N) :- X\=Y, count(X,T,N).
 
 %% Replace nth element in a list with a given element.
-replace([_|T],0,X,[X|T]).
-replace([H|T],I,X,[H|R]):-I>-1, NI is I-1, replace(T,NI,X,R), !.
-replace(L,_,_,L).
-
+replace([_|T], 0, X, [X|T]).
+replace([H|T], I, X, [H|R]):- I > -1, NI is I-1, replace(T, NI, X, R), !.
+replace(L, _, _, L).
 %% Find if there is a overlap between two given student timeslot.
 find_student_overlap([],[]):-fail,!.
 find_student_overlap([H1|T1],[H2|T2]):-is_equal(H1,H2,a), !; find_student_overlap(T1,T2).
