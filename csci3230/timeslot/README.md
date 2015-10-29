@@ -1,2 +1,2 @@
 # homework
-This is an assignment for CSCI3230.
+This is a simple Prolog assignment for CSCI3230, Faculty of Engineering, CUHK.
