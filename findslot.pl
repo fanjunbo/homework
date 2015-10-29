@@ -6,17 +6,17 @@ student_timetable(s12466,[n,a,n,n,a,a,n,a,n,a,n,n,a,a]).
 
 %% Generate a timeslot without a for a time confilct.
 generate_all_n(R,L,R):-length(R,Len),Len=:=L, !.
-generate_all_n(Acc,L,R):-length(Acc,Len), Len<L, generate_all_n([n|Acc], L, R).
+generate_all_n(Acc,L,R):-length(Acc,Len), Len<L, generate_all_n([n|Acc],L,R).
 
 %% Count the number of a in a particular timeslot.
-count(_, [], 0) :- !.
-count(X, [X|T], N) :- count(X, T, N2), N is N2 + 1.     
-count(X, [Y|T], N) :- X\=Y, count(X, T, N).
+count(_,[],0) :- !.
+count(X,[X|T],N) :- count(X, T, N2), N is N2 + 1.     
+count(X,[Y|T],N) :- X\=Y, count(X,T,N).
 
 %% Replace nth element in a list with a given element.
-replace([_|T], 0, X, [X|T]).
-replace([H|T], I, X, [H|R]):- I > -1, NI is I-1, replace(T, NI, X, R), !.
-replace(L, _, _, L).
+replace([_|T],0,X,[X|T]).
+replace([H|T],I,X,[H|R]):-I>-1, NI is I-1, replace(T,NI,X,R), !.
+replace(L,_,_,L).
 
 %% Find if there is a overlap between two given student timeslot.
 find_student_overlap([],[]):-fail,!.
