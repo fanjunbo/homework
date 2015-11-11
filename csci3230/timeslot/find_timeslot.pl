@@ -38,7 +38,6 @@ get_all_tt_timeslot_subset([_|T],Src,Tar,L,R,Sub):-get_all_tt_timeslot_subset(T,
 %% Generating all possible subset from least to most number of a and test one by one.
 loop_entry(Tt,S,Num,Tuto):-length(Tt,Len), get_all_tt_timeslot_subset(Tt,0,Num,Len,[],Tuto), if_fit_student(S,Tuto),!;loop_entry(Tt,S,Num+1,Tuto).
 
-
 %% Check if all given variables are equal.
 are_three_equal(Var,Var,Var).
 
