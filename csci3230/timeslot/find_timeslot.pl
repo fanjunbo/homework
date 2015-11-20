@@ -1,8 +1,5 @@
-%% Facts
-constraints(alice_tt,[n,n,a,n,n,a,a,a,a,a,a,n,n,n]).
-constraints(bob_tt,[n,a,n,n,n,a,n,n,a,a,a,n,a,a]).
-student_timetable(s12676,[a,a,a,n,n,a,n,n,a,a,a,n,n,a]).
-student_timetable(s12466,[n,a,n,n,a,a,n,a,n,a,n,n,a,a]).
+%% This program has passed the automatic online judgement of this courses with a 
+%%	total amount of 10 testing cases.
 
 %% Generate a timeslot without a for a time confilct.
 generate_all_n(R,L,R):-length(R,Len),Len=:=L, !.
@@ -37,6 +34,7 @@ get_all_tt_timeslot_subset([_|T],Src,Tar,L,R,Sub):-get_all_tt_timeslot_subset(T,
 
 %% Generating all possible subset from least to most number of a and test one by one.
 loop_entry(Tt,S,Num,Tuto):-length(Tt,Len), get_all_tt_timeslot_subset(Tt,0,Num,Len,[],Tuto), if_fit_student(S,Tuto),!;loop_entry(Tt,S,Num+1,Tuto).
+
 
 %% Check if all given variables are equal.
 are_three_equal(Var,Var,Var).
